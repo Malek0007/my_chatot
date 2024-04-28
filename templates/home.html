@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Chatbot</h1>
+        <div id="chat-container"></div>
+        
+        <!-- HTML form for message submission -->
+        <form id="message-form" action="/predict" method="POST">
+            <input type="text" id="user-input" name="message" placeholder="Type your message...">
+            <button type="button" onclick="sendMessage()">Send</button> <!-- Use type="button" -->
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script>
+        // Function to send message asynchronously
+        function sendMessage() {
+            var formData = new FormData(document.getElementById("message-form")); // Get form data
+            var xhr = new XMLHttpRequest(); // Create new XMLHttpRequest object
+            xhr.open("POST", "/predict", true); // Open a POST request to /predict route
+            xhr.onload = function () {
+                if (xhr.status === 200) { // Check if the request was successful
+                    // Handle response here (update chat container, etc.)
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send(formData); // Send form data
+        }
+    </script>
+</body>
+</html>
