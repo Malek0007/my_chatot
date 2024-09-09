@@ -9,7 +9,7 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 
 # Set NLTK data path
-nltk_data_path = r'C:\Users\dynabook\AppData\Roaming\nltk_data'  # Change this path if your NLTK data is stored elsewhere
+nltk_data_path = r'C:\Users\dynabook\AppData\Roaming\nltk_data' 
 os.environ['NLTK_DATA'] = nltk_data_path
 
 # Download the 'punkt' tokenizer
@@ -19,7 +19,7 @@ nltk.download('wordnet')
 lemmatizer = WordNetLemmatizer()
 
 # Load intents data from JSON file
-intents_path = r'C:\Users\dynabook\Desktop\chatbot\intents.json'  # Change this path to the location of your intents file
+intents_path = r'C:\Users\dynabook\Desktop\chatbot\intents.json'  
 with open(intents_path, 'r') as file:
     intents = json.load(file)
 
